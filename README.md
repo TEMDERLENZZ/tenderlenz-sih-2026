@@ -23,24 +23,24 @@ UPLOAD → TEXT EXTRACTION → CLASSIFICATION → FIELD EXTRACTION → STRUCTURE
 
 ## Supported Documents (14 Types)
 
-1. ✅ GST Certificate
-2. ✅ Udyam / MSME Certificate
-3. ✅ PAN Card
-4. ⚠️ Income Tax Return
-5. ✅ OEM Authorization
-6. ⚠️ EPFO Registration
-7. ⚠️ ESIC Registration
-8. ✅ Local Content Declaration
-9. ⚠️ BIS Certificate
-10. ⚠️ Startup Certificate
-11. ⚠️ NSIC Certificate
-12. ✅ Company Incorporation / MCA
-13. ⚠️ Non-Blacklisting Declaration
-14. ✅ Financial Turnover Certificate
+1. GST Certificate
+2. Udyam / MSME Certificate
+3. PAN Card
+4. Income Tax Return
+5. OEM Authorization
+6. EPFO Registration
+7. ESIC Registration
+8. Local Content Declaration
+9. BIS Certificate
+10. Startup Certificate
+11. NSIC Certificate
+12. Company Incorporation / MCA
+13. Non-Blacklisting Declaration
+14. Financial Turnover Certificate
 
-**Legend:**
-- ✅ Extractor implemented
-- ⚠️ Extractor placeholder (accepts upload, stores text, pending field extraction)
+**Status Legend:**
+- Extractor implemented: GST, Udyam/MSME, PAN, OEM Auth, Local Content, Company Inc, Financial Turnover
+- Extractor placeholder (accepts upload, stores text, pending field extraction): ITR, EPFO, ESIC, BIS, Startup, NSIC, Non-Blacklisting
 
 ---
 
@@ -198,12 +198,12 @@ Each document type has its own structured extraction schema defined in:
 
 ## Phase 1 Definition of Done
 
-✅ All 14 document types can be uploaded  
-✅ Each document follows: UPLOAD → EXTRACT → CLASSIFY → STRUCTURE → SAVE → DISPLAY  
-✅ No hardcoded extraction results  
-✅ UI displays actual values from uploaded documents  
-✅ Database stores structured data + raw text  
-✅ API provides bidder summary and completion status  
+- All 14 document types can be uploaded  
+- Each document follows: UPLOAD → EXTRACT → CLASSIFY → STRUCTURE → SAVE → DISPLAY  
+- No hardcoded extraction results  
+- UI displays actual values from uploaded documents  
+- Database stores structured data + raw text  
+- API provides bidder summary and completion status  
 
 ### Phase 1 Status: **IMPLEMENTATION COMPLETE**
 
