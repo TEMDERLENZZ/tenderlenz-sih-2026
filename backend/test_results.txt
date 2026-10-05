@@ -1,0 +1,1523 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0 -- C:\Python314\python.exe
+cachedir: .pytest_cache
+rootdir: D:\sih tender\backend
+plugins: anyio-4.15.1, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 140 items
+
+tests/test_auth.py::test_register_user_successfully FAILED               [  0%]
+tests/test_auth.py::test_register_duplicate_username_rejected FAILED     [  1%]
+tests/test_auth.py::test_password_stored_as_hash PASSED                  [  2%]
+tests/test_auth.py::test_login_success_returns_jwt FAILED                [  2%]
+tests/test_auth.py::test_login_invalid_password_rejected FAILED          [  3%]
+tests/test_auth.py::test_get_current_user_with_valid_token FAILED        [  4%]
+tests/test_auth.py::test_get_current_user_rejects_missing_token PASSED   [  5%]
+tests/test_auth.py::test_expired_invalid_token_rejected PASSED           [  5%]
+tests/test_auth.py::test_inactive_user_rejected FAILED                   [  6%]
+tests/test_auth.py::test_jwt_token_structure PASSED                      [  7%]
+tests/test_auth.py::test_password_hash_never_returned_in_api FAILED      [  7%]
+tests/test_auth.py::test_role_validation PASSED                          [  8%]
+tests/test_decisions.py::test_record_decision_success FAILED             [  9%]
+tests/test_decisions.py::test_record_decision_creates_audit_event FAILED [ 10%]
+tests/test_decisions.py::test_record_decision_missing_tender FAILED      [ 10%]
+tests/test_decisions.py::test_record_decision_missing_compliance FAILED  [ 11%]
+tests/test_decisions.py::test_record_decision_duplicate_conflict FAILED  [ 12%]
+tests/test_decisions.py::test_get_decision_success FAILED                [ 12%]
+tests/test_decisions.py::test_get_decision_not_found FAILED              [ 13%]
+tests/test_decisions.py::test_decision_persistence_after_refresh FAILED  [ 14%]
+tests/test_decisions.py::test_get_audit_logs FAILED                      [ 15%]
+tests/test_decisions.py::test_all_decision_states FAILED                 [ 15%]
+tests/test_decisions_auth.py::test_record_decision_requires_auth FAILED  [ 16%]
+tests/test_decisions_auth.py::test_record_decision_success_with_auth PASSED [ 17%]
+tests/test_decisions_auth.py::test_officer_identity_from_token PASSED    [ 17%]
+tests/test_extractors.py::TestGSTExtractor::test_valid_document_extracts_gstin PASSED [ 18%]
+tests/test_extractors.py::TestGSTExtractor::test_valid_document_extracts_legal_name PASSED [ 19%]
+tests/test_extractors.py::TestGSTExtractor::test_valid_document_extracts_status PASSED [ 20%]
+tests/test_extractors.py::TestGSTExtractor::test_valid_document_extracts_registration_date PASSED [ 20%]
+tests/test_extractors.py::TestGSTExtractor::test_missing_gstin_returns_none_not_error PASSED [ 21%]
+tests/test_extractors.py::TestGSTExtractor::test_ocr_degraded_still_finds_gstin PASSED [ 22%]
+tests/test_extractors.py::TestGSTExtractor::test_empty_text_returns_all_none PASSED [ 22%]
+tests/test_extractors.py::TestGSTExtractor::test_wrong_document_returns_no_gstin PASSED [ 23%]
+tests/test_extractors.py::TestGSTExtractor::test_returns_tuple_with_trace PASSED [ 24%]
+tests/test_extractors.py::TestGSTExtractor::test_trace_has_required_keys PASSED [ 25%]
+tests/test_extractors.py::TestGSTExtractor::test_legal_name_plain_format PASSED [ 25%]
+tests/test_extractors.py::TestGSTExtractor::test_legal_name_colon_format PASSED [ 26%]
+tests/test_extractors.py::TestGSTExtractor::test_legal_name_dash_format PASSED [ 27%]
+tests/test_extractors.py::TestGSTExtractor::test_legal_name_newline_format PASSED [ 27%]
+tests/test_extractors.py::TestGSTExtractor::test_legal_name_numbered_format PASSED [ 28%]
+tests/test_extractors.py::TestGSTExtractor::test_legal_name_different_company PASSED [ 29%]
+tests/test_extractors.py::TestPANExtractor::test_valid_individual_pan_extracted PASSED [ 30%]
+tests/test_extractors.py::TestPANExtractor::test_company_pan_extracted PASSED [ 30%]
+tests/test_extractors.py::TestPANExtractor::test_name_extracted PASSED   [ 31%]
+tests/test_extractors.py::TestPANExtractor::test_empty_returns_none PASSED [ 32%]
+tests/test_extractors.py::TestPANExtractor::test_pan_format_validation PASSED [ 32%]
+tests/test_extractors.py::TestUdyamExtractor::test_valid_urnum_extracted PASSED [ 33%]
+tests/test_extractors.py::TestUdyamExtractor::test_enterprise_name_extracted PASSED [ 34%]
+tests/test_extractors.py::TestUdyamExtractor::test_enterprise_type_extracted PASSED [ 35%]
+tests/test_extractors.py::TestUdyamExtractor::test_missing_urn_returns_none PASSED [ 35%]
+tests/test_extractors.py::TestUdyamExtractor::test_empty_returns_none PASSED [ 36%]
+tests/test_extractors.py::TestUdyamExtractor::test_udyam_format PASSED   [ 37%]
+tests/test_extractors.py::TestFinancialTurnoverExtractor::test_bidder_name_extracted PASSED [ 37%]
+tests/test_extractors.py::TestFinancialTurnoverExtractor::test_fy_2023_24_extracted PASSED [ 38%]
+tests/test_extractors.py::TestFinancialTurnoverExtractor::test_fy_2021_22_extracted PASSED [ 39%]
+tests/test_extractors.py::TestFinancialTurnoverExtractor::test_average_turnover_extracted PASSED [ 40%]
+tests/test_extractors.py::TestFinancialTurnoverExtractor::test_missing_turnover_returns_none PASSED [ 40%]
+tests/test_extractors.py::TestFinancialTurnoverExtractor::test_empty_returns_no_turnover PASSED [ 41%]
+tests/test_extractors.py::TestOEMExtractor::test_oem_name_extracted PASSED [ 42%]
+tests/test_extractors.py::TestOEMExtractor::test_authorized_bidder_extracted PASSED [ 42%]
+tests/test_extractors.py::TestOEMExtractor::test_product_name_extracted PASSED [ 43%]
+tests/test_extractors.py::TestOEMExtractor::test_expiry_date_extracted PASSED [ 44%]
+tests/test_extractors.py::TestOEMExtractor::test_empty_returns_all_none PASSED [ 45%]
+tests/test_extractors.py::TestEPFOExtractor::test_establishment_id_extracted PASSED [ 45%]
+tests/test_extractors.py::TestEPFOExtractor::test_establishment_name_extracted PASSED [ 46%]
+tests/test_extractors.py::TestEPFOExtractor::test_registration_date_extracted PASSED [ 47%]
+tests/test_extractors.py::TestEPFOExtractor::test_status_extracted PASSED [ 47%]
+tests/test_extractors.py::TestEPFOExtractor::test_returns_tuple PASSED   [ 48%]
+tests/test_extractors.py::TestEPFOExtractor::test_empty_returns_none PASSED [ 49%]
+tests/test_extractors.py::TestESICExtractor::test_esic_number_extracted PASSED [ 50%]
+tests/test_extractors.py::TestESICExtractor::test_esic_number_format PASSED [ 50%]
+tests/test_extractors.py::TestESICExtractor::test_establishment_name_extracted PASSED [ 51%]
+tests/test_extractors.py::TestESICExtractor::test_registration_date_extracted PASSED [ 52%]
+tests/test_extractors.py::TestESICExtractor::test_returns_tuple PASSED   [ 52%]
+tests/test_extractors.py::TestESICExtractor::test_empty_returns_none PASSED [ 53%]
+tests/test_extractors.py::TestLocalContentExtractor::test_bidder_name_extracted PASSED [ 54%]
+tests/test_extractors.py::TestLocalContentExtractor::test_local_content_percentage_extracted PASSED [ 55%]
+tests/test_extractors.py::TestLocalContentExtractor::test_category_extracted PASSED [ 55%]
+tests/test_extractors.py::TestLocalContentExtractor::test_declaration_date_extracted PASSED [ 56%]
+tests/test_extractors.py::TestLocalContentExtractor::test_missing_percentage_returns_none PASSED [ 57%]
+tests/test_extractors.py::TestLocalContentExtractor::test_empty_returns_none PASSED [ 57%]
+tests/test_extractors.py::TestBISExtractor::test_license_number_extracted PASSED [ 58%]
+tests/test_extractors.py::TestBISExtractor::test_licensee_name_extracted PASSED [ 59%]
+tests/test_extractors.py::TestBISExtractor::test_product_name_extracted PASSED [ 60%]
+tests/test_extractors.py::TestBISExtractor::test_is_standard_extracted PASSED [ 60%]
+tests/test_extractors.py::TestBISExtractor::test_date_of_grant_extracted PASSED [ 61%]
+tests/test_extractors.py::TestBISExtractor::test_valid_upto_extracted PASSED [ 62%]
+tests/test_extractors.py::TestBISExtractor::test_returns_tuple PASSED    [ 62%]
+tests/test_extractors.py::TestBISExtractor::test_empty_returns_none PASSED [ 63%]
+tests/test_extractors.py::TestStartupExtractor::test_certificate_number_extracted PASSED [ 64%]
+tests/test_extractors.py::TestStartupExtractor::test_dpiit_number_extracted PASSED [ 65%]
+tests/test_extractors.py::TestStartupExtractor::test_startup_name_extracted PASSED [ 65%]
+tests/test_extractors.py::TestStartupExtractor::test_recognition_date_extracted PASSED [ 66%]
+tests/test_extractors.py::TestStartupExtractor::test_valid_upto_extracted PASSED [ 67%]
+tests/test_extractors.py::TestStartupExtractor::test_returns_tuple PASSED [ 67%]
+tests/test_extractors.py::TestStartupExtractor::test_empty_returns_none PASSED [ 68%]
+tests/test_extractors.py::TestNSICExtractor::test_registration_number_extracted PASSED [ 69%]
+tests/test_extractors.py::TestNSICExtractor::test_enterprise_name_extracted PASSED [ 70%]
+tests/test_extractors.py::TestNSICExtractor::test_validity_to_extracted PASSED [ 70%]
+tests/test_extractors.py::TestNSICExtractor::test_category_extracted PASSED [ 71%]
+tests/test_extractors.py::TestNSICExtractor::test_returns_tuple PASSED   [ 72%]
+tests/test_extractors.py::TestNSICExtractor::test_empty_returns_none PASSED [ 72%]
+tests/test_extractors.py::TestCompanyIncorporationExtractor::test_cin_extracted PASSED [ 73%]
+tests/test_extractors.py::TestCompanyIncorporationExtractor::test_cin_format PASSED [ 74%]
+tests/test_extractors.py::TestCompanyIncorporationExtractor::test_company_name_extracted PASSED [ 75%]
+tests/test_extractors.py::TestCompanyIncorporationExtractor::test_date_of_incorporation_extracted PASSED [ 75%]
+tests/test_extractors.py::TestCompanyIncorporationExtractor::test_missing_cin_returns_none PASSED [ 76%]
+tests/test_extractors.py::TestCompanyIncorporationExtractor::test_empty_returns_none PASSED [ 77%]
+tests/test_extractors.py::TestNonBlacklistingExtractor::test_bidder_name_extracted PASSED [ 77%]
+tests/test_extractors.py::TestNonBlacklistingExtractor::test_declaration_date_extracted PASSED [ 78%]
+tests/test_extractors.py::TestNonBlacklistingExtractor::test_declaration_statement_extracted PASSED [ 79%]
+tests/test_extractors.py::TestNonBlacklistingExtractor::test_declaration_statement_not_hardcoded PASSED [ 80%]
+tests/test_extractors.py::TestNonBlacklistingExtractor::test_returns_tuple PASSED [ 80%]
+tests/test_extractors.py::TestNonBlacklistingExtractor::test_empty_returns_none PASSED [ 81%]
+tests/test_extractors.py::TestITRExtractor::test_pan_extracted PASSED    [ 82%]
+tests/test_extractors.py::TestITRExtractor::test_name_extracted PASSED   [ 82%]
+tests/test_extractors.py::TestITRExtractor::test_assessment_year_extracted PASSED [ 83%]
+tests/test_extractors.py::TestITRExtractor::test_acknowledgement_number_extracted PASSED [ 84%]
+tests/test_extractors.py::TestITRExtractor::test_total_income_extracted PASSED [ 85%]
+tests/test_extractors.py::TestITRExtractor::test_missing_ack_returns_none PASSED [ 85%]
+tests/test_extractors.py::TestITRExtractor::test_returns_tuple PASSED    [ 86%]
+tests/test_extractors.py::TestITRExtractor::test_empty_returns_none PASSED [ 87%]
+tests/test_extractors.py::TestExtractorConformance::test_gst_returns_tuple PASSED [ 87%]
+tests/test_extractors.py::TestExtractorConformance::test_pan_returns_tuple PASSED [ 88%]
+tests/test_extractors.py::TestExtractorConformance::test_udyam_returns_tuple PASSED [ 89%]
+tests/test_extractors.py::TestExtractorConformance::test_turnover_returns_tuple PASSED [ 90%]
+tests/test_extractors.py::TestExtractorConformance::test_oem_returns_tuple PASSED [ 90%]
+tests/test_extractors.py::TestExtractorConformance::test_epfo_returns_tuple PASSED [ 91%]
+tests/test_extractors.py::TestExtractorConformance::test_esic_returns_tuple PASSED [ 92%]
+tests/test_extractors.py::TestExtractorConformance::test_local_content_returns_tuple PASSED [ 92%]
+tests/test_extractors.py::TestExtractorConformance::test_bis_returns_tuple PASSED [ 93%]
+tests/test_extractors.py::TestExtractorConformance::test_startup_returns_tuple PASSED [ 94%]
+tests/test_extractors.py::TestExtractorConformance::test_nsic_returns_tuple PASSED [ 95%]
+tests/test_extractors.py::TestExtractorConformance::test_company_inc_returns_tuple PASSED [ 95%]
+tests/test_extractors.py::TestExtractorConformance::test_non_blacklisting_returns_tuple PASSED [ 96%]
+tests/test_extractors.py::TestExtractorConformance::test_itr_returns_tuple PASSED [ 97%]
+tests/test_sandbox_verification.py::test_sandbox_provider_status PASSED  [ 97%]
+tests/test_sandbox_verification.py::test_sandbox_provider_all_14_categories PASSED [ 98%]
+tests/test_sandbox_verification.py::test_bank_provider PASSED            [ 99%]
+tests/test_sandbox_verification.py::test_sandbox_provider_not_found PASSED [100%]
+
+================================== FAILURES ===================================
+_______________________ test_register_user_successfully _______________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: users
+
+The above exception was the direct cause of the following exception:
+tests\test_auth.py:46: in test_register_user_successfully
+    response = client.post("/api/auth/register", json={
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:556: in post
+    return super().post(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1204: in post
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\auth.py:36: in register_user
+    existing_user = db.query(User).filter(User.username == user_data.username).first()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2823: in first
+    return self.limit(1)._iter().first()  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users
+E   [SQL: SELECT users.id AS users_id, users.username AS users_username, users.password_hash AS users_password_hash, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+E   FROM users 
+E   WHERE users.username = ?
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('testuser1', 1, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+__________________ test_register_duplicate_username_rejected __________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: users
+
+The above exception was the direct cause of the following exception:
+tests\test_auth.py:63: in test_register_duplicate_username_rejected
+    client.post("/api/auth/register", json={
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:556: in post
+    return super().post(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1204: in post
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\auth.py:36: in register_user
+    existing_user = db.query(User).filter(User.username == user_data.username).first()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2823: in first
+    return self.limit(1)._iter().first()  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users
+E   [SQL: SELECT users.id AS users_id, users.username AS users_username, users.password_hash AS users_password_hash, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+E   FROM users 
+E   WHERE users.username = ?
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('duplicate', 1, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+_______________________ test_login_success_returns_jwt ________________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: users
+
+The above exception was the direct cause of the following exception:
+tests\test_auth.py:99: in test_login_success_returns_jwt
+    client.post("/api/auth/register", json={
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:556: in post
+    return super().post(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1204: in post
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\auth.py:36: in register_user
+    existing_user = db.query(User).filter(User.username == user_data.username).first()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2823: in first
+    return self.limit(1)._iter().first()  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users
+E   [SQL: SELECT users.id AS users_id, users.username AS users_username, users.password_hash AS users_password_hash, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+E   FROM users 
+E   WHERE users.username = ?
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('logintest', 1, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+____________________ test_login_invalid_password_rejected _____________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: users
+
+The above exception was the direct cause of the following exception:
+tests\test_auth.py:129: in test_login_invalid_password_rejected
+    client.post("/api/auth/register", json={
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:556: in post
+    return super().post(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1204: in post
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\auth.py:36: in register_user
+    existing_user = db.query(User).filter(User.username == user_data.username).first()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2823: in first
+    return self.limit(1)._iter().first()  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users
+E   [SQL: SELECT users.id AS users_id, users.username AS users_username, users.password_hash AS users_password_hash, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+E   FROM users 
+E   WHERE users.username = ?
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('user1', 1, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+___________________ test_get_current_user_with_valid_token ____________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: users
+
+The above exception was the direct cause of the following exception:
+tests\test_auth.py:148: in test_get_current_user_with_valid_token
+    client.post("/api/auth/register", json={
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:556: in post
+    return super().post(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1204: in post
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\auth.py:36: in register_user
+    existing_user = db.query(User).filter(User.username == user_data.username).first()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2823: in first
+    return self.limit(1)._iter().first()  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users
+E   [SQL: SELECT users.id AS users_id, users.username AS users_username, users.password_hash AS users_password_hash, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+E   FROM users 
+E   WHERE users.username = ?
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('metest', 1, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+_________________________ test_inactive_user_rejected _________________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: users
+
+The above exception was the direct cause of the following exception:
+tests\test_auth.py:205: in test_inactive_user_rejected
+    response = client.post("/api/auth/login", json={
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:556: in post
+    return super().post(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1204: in post
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\auth.py:95: in login
+    user = db.query(User).filter(User.username == credentials.username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2823: in first
+    return self.limit(1)._iter().first()  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users
+E   [SQL: SELECT users.id AS users_id, users.username AS users_username, users.password_hash AS users_password_hash, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+E   FROM users 
+E   WHERE users.username = ?
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('inactive', 1, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+---------------------------- Captured stdout call -----------------------------
+\u26a0\ufe0f bcrypt unavailable, using pbkdf2_sha256: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+------------------------------ Captured log call ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+__________________ test_password_hash_never_returned_in_api ___________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: users
+
+The above exception was the direct cause of the following exception:
+tests\test_auth.py:235: in test_password_hash_never_returned_in_api
+    reg_response = client.post("/api/auth/register", json={
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:556: in post
+    return super().post(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1204: in post
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\auth.py:36: in register_user
+    existing_user = db.query(User).filter(User.username == user_data.username).first()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2823: in first
+    return self.limit(1)._iter().first()  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users
+E   [SQL: SELECT users.id AS users_id, users.username AS users_username, users.password_hash AS users_password_hash, users.role AS users_role, users.is_active AS users_is_active, users.created_at AS users_created_at, users.updated_at AS users_updated_at 
+E   FROM users 
+E   WHERE users.username = ?
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('hashtest', 1, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+________________________ test_record_decision_success _________________________
+tests\test_decisions.py:70: in test_record_decision_success
+    assert response.status_code == 200
+E   assert 401 == 200
+E    +  where 401 = <Response [401 Unauthorized]>.status_code
+__________________ test_record_decision_creates_audit_event ___________________
+tests\test_decisions.py:95: in test_record_decision_creates_audit_event
+    assert len(audit_logs) == 1
+E   assert 0 == 1
+E    +  where 0 = len([])
+_____________________ test_record_decision_missing_tender _____________________
+tests\test_decisions.py:111: in test_record_decision_missing_tender
+    assert response.status_code == 404
+E   assert 401 == 404
+E    +  where 401 = <Response [401 Unauthorized]>.status_code
+___________________ test_record_decision_missing_compliance ___________________
+tests\test_decisions.py:133: in test_record_decision_missing_compliance
+    assert response.status_code == 400
+E   assert 401 == 400
+E    +  where 401 = <Response [401 Unauthorized]>.status_code
+___________________ test_record_decision_duplicate_conflict ___________________
+tests\test_decisions.py:156: in test_record_decision_duplicate_conflict
+    assert response.status_code == 409
+E   assert 401 == 409
+E    +  where 401 = <Response [401 Unauthorized]>.status_code
+__________________________ test_get_decision_success __________________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: officer_decisions
+
+The above exception was the direct cause of the following exception:
+tests\test_decisions.py:172: in test_get_decision_success
+    response = client.get(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:483: in get
+    return super().get(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1113: in get
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\decisions.py:166: in get_officer_decision
+    ).first()
+      ^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2823: in first
+    return self.limit(1)._iter().first()  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: officer_decisions
+E   [SQL: SELECT officer_decisions.id AS officer_decisions_id, officer_decisions.tender_id AS officer_decisions_tender_id, officer_decisions.bidder_id AS officer_decisions_bidder_id, officer_decisions.decision AS officer_decisions_decision, officer_decisions.officer_id AS officer_decisions_officer_id, officer_decisions.officer_name AS officer_decisions_officer_name, officer_decisions.remarks AS officer_decisions_remarks, officer_decisions.decided_at AS officer_decisions_decided_at 
+E   FROM officer_decisions 
+E   WHERE officer_decisions.tender_id = ? AND officer_decisions.bidder_id = ?
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('TEST_TENDER_001', 'TEST_BIDDER_001', 1, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+_________________________ test_get_decision_not_found _________________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: officer_decisions
+
+The above exception was the direct cause of the following exception:
+tests\test_decisions.py:183: in test_get_decision_not_found
+    response = client.get(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:483: in get
+    return super().get(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1113: in get
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\decisions.py:166: in get_officer_decision
+    ).first()
+      ^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2823: in first
+    return self.limit(1)._iter().first()  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: officer_decisions
+E   [SQL: SELECT officer_decisions.id AS officer_decisions_id, officer_decisions.tender_id AS officer_decisions_tender_id, officer_decisions.bidder_id AS officer_decisions_bidder_id, officer_decisions.decision AS officer_decisions_decision, officer_decisions.officer_id AS officer_decisions_officer_id, officer_decisions.officer_name AS officer_decisions_officer_name, officer_decisions.remarks AS officer_decisions_remarks, officer_decisions.decided_at AS officer_decisions_decided_at 
+E   FROM officer_decisions 
+E   WHERE officer_decisions.tender_id = ? AND officer_decisions.bidder_id = ?
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('TEST_TENDER_001', 'NO_DECISION_BIDDER', 1, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+___________________ test_decision_persistence_after_refresh ___________________
+tests\test_decisions.py:200: in test_decision_persistence_after_refresh
+    decision_id = response1.json()["id"]
+                  ^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'id'
+_____________________________ test_get_audit_logs _____________________________
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlite3.OperationalError: no such table: audit_logs
+
+The above exception was the direct cause of the following exception:
+tests\test_decisions.py:220: in test_get_audit_logs
+    response = client.get(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:483: in get
+    return super().get(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1113: in get
+    return self.request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:455: in request
+    return super().request(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:797: in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:980: in send
+    response = self._send_handling_auth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1008: in _send_handling_auth
+    response = self._send_handling_redirects(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1043: in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\httpx2\_client.py:1076: in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:354: in handle_request
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:351: in handle_request
+    portal.call(self.app, scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:454: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+C:\Python314\Lib\concurrent\futures\_base.py:396: in __get_result
+    raise self._exception
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\applications.py:1163: in __call__
+    await super().__call__(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:186: in __call__
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\errors.py:164: in __call__
+    await self.app(scope, receive, _send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\cors.py:88: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\middleware\exceptions.py:63: in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\routing.py:670: in __call__
+    await self.middleware_stack(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2734: in app
+    await route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1780: in handle
+    await self.original_router.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:2789: in handle
+    await included_router._handle_selected(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1800: in _handle_selected
+    await original_route.handle(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:1279: in handle
+    await app(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:158: in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:53: in wrapped_app
+    raise exc
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\_exception_handler.py:42: in wrapped_app
+    await app(scope, receive, sender)
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:144: in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:706: in app
+    raw_response = await run_endpoint_function(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\fastapi\routing.py:352: in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app\api\routes\decisions.py:210: in get_audit_logs
+    logs = query.order_by(AuditLog.timestamp.desc()).limit(limit).all()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2768: in all
+    return self._iter().all()  # type: ignore[return-value]
+           ^^^^^^^^^^^^
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\query.py:2921: in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2473: in execute
+    return self._execute_internal(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\session.py:2363: in _execute_internal
+    compile_state_cls.orm_execute_statement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\orm\context.py:316: in orm_execute_statement
+    result = conn.execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1448: in execute
+    return meth(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\sql\elements.py:533: in _execute_on_connection
+    return connection._execute_clauseelement(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1668: in _execute_clauseelement
+    ret = self._execute_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1822: in _execute_context
+    return self._exec_single_context(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1962: in _exec_single_context
+    self._handle_dbapi_exception(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:2332: in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\base.py:1943: in _exec_single_context
+    self.dialect.do_execute(
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\sqlalchemy\engine\default.py:1180: in do_execute
+    cursor.execute(statement, parameters)
+E   sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: audit_logs
+E   [SQL: SELECT audit_logs.id AS audit_logs_id, audit_logs.event_type AS audit_logs_event_type, audit_logs.tender_id AS audit_logs_tender_id, audit_logs.bidder_id AS audit_logs_bidder_id, audit_logs.user_id AS audit_logs_user_id, audit_logs.user_name AS audit_logs_user_name, audit_logs.action_description AS audit_logs_action_description, audit_logs.event_metadata AS audit_logs_event_metadata, audit_logs.timestamp AS audit_logs_timestamp 
+E   FROM audit_logs 
+E   WHERE audit_logs.tender_id = ? ORDER BY audit_logs.timestamp DESC
+E    LIMIT ? OFFSET ?]
+E   [parameters: ('TEST_TENDER_001', 100, 0)]
+E   (Background on this error at: https://sqlalche.me/e/21/e3q8)
+__________________________ test_all_decision_states ___________________________
+tests\test_decisions.py:256: in test_all_decision_states
+    assert response.status_code == 200
+E   assert 401 == 200
+E    +  where 401 = <Response [401 Unauthorized]>.status_code
+_____________________ test_record_decision_requires_auth ______________________
+tests\test_decisions_auth.py:90: in test_record_decision_requires_auth
+    assert response.status_code == 403  # No auth header
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   assert 401 == 403
+E    +  where 401 = <Response [401 Unauthorized]>.status_code
+---------------------------- Captured stdout setup ----------------------------
+\u26a0\ufe0f bcrypt unavailable, using pbkdf2_sha256: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+----------------------------- Captured log setup ------------------------------
+WARNING  passlib.handlers.bcrypt:bcrypt.py:622 (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+============================== warnings summary ===============================
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:53
+  C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\starlette\testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\PyPDF2\__init__.py:21
+  C:\Users\sksar\AppData\Roaming\Python\Python314\site-packages\PyPDF2\__init__.py:21: DeprecationWarning: PyPDF2 is deprecated. Please move to the pypdf library instead.
+    warnings.warn(
+
+app\schemas\verification_schemas.py:23
+  D:\sih tender\backend\app\schemas\verification_schemas.py:23: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class VerificationSessionSummary(BaseModel):
+
+app\schemas\verification_schemas.py:47
+  D:\sih tender\backend\app\schemas\verification_schemas.py:47: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class VerificationResultDetail(BaseModel):
+
+app\schemas\tender_schemas.py:9
+  D:\sih tender\backend\app\schemas\tender_schemas.py:9: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class TenderUploadResponse(BaseModel):
+
+app\schemas\tender_schemas.py:50
+  D:\sih tender\backend\app\schemas\tender_schemas.py:50: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class TenderRequirementResponse(TenderRequirementBase):
+
+app\schemas\tender_schemas.py:63
+  D:\sih tender\backend\app\schemas\tender_schemas.py:63: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class TenderComplianceResultDetail(BaseModel):
+
+app\api\routes\decisions.py:32
+  D:\sih tender\backend\app\api\routes\decisions.py:32: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class OfficerDecisionResponse(BaseModel):
+
+app\schemas\user.py:46
+  D:\sih tender\backend\app\schemas\user.py:46: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class UserResponse(BaseModel):
+
+tests/test_auth.py::test_jwt_token_structure
+tests/test_decisions_auth.py::test_record_decision_success_with_auth
+tests/test_decisions_auth.py::test_officer_identity_from_token
+  D:\sih tender\backend\app\services\auth\jwt.py:32: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_auth.py::test_register_user_successfully - sqlalchemy.exc.O...
+FAILED tests/test_auth.py::test_register_duplicate_username_rejected - sqlalc...
+FAILED tests/test_auth.py::test_login_success_returns_jwt - sqlalchemy.exc.Op...
+FAILED tests/test_auth.py::test_login_invalid_password_rejected - sqlalchemy....
+FAILED tests/test_auth.py::test_get_current_user_with_valid_token - sqlalchem...
+FAILED tests/test_auth.py::test_inactive_user_rejected - sqlalchemy.exc.Opera...
+FAILED tests/test_auth.py::test_password_hash_never_returned_in_api - sqlalch...
+FAILED tests/test_decisions.py::test_record_decision_success - assert 401 == 200
+FAILED tests/test_decisions.py::test_record_decision_creates_audit_event - as...
+FAILED tests/test_decisions.py::test_record_decision_missing_tender - assert ...
+FAILED tests/test_decisions.py::test_record_decision_missing_compliance - ass...
+FAILED tests/test_decisions.py::test_record_decision_duplicate_conflict - ass...
+FAILED tests/test_decisions.py::test_get_decision_success - sqlalchemy.exc.Op...
+FAILED tests/test_decisions.py::test_get_decision_not_found - sqlalchemy.exc....
+FAILED tests/test_decisions.py::test_decision_persistence_after_refresh - Key...
+FAILED tests/test_decisions.py::test_get_audit_logs - sqlalchemy.exc.Operatio...
+FAILED tests/test_decisions.py::test_all_decision_states - assert 401 == 200
+FAILED tests/test_decisions_auth.py::test_record_decision_requires_auth - ass...
+================ 18 failed, 122 passed, 12 warnings in 38.76s =================
